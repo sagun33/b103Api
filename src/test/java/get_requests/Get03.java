@@ -1,5 +1,6 @@
 package get_requests;
 
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
 
@@ -28,7 +29,7 @@ public class Get03 {
 
     @Test
     public void get03() {
-        //set the URL
+        //Set the URL
         String url = "https://jsonplaceholder.typicode.com/todos/23";
 
         //Set the expected data
@@ -52,7 +53,7 @@ public class Get03 {
         response.
                 then().
                 statusCode(200).
-                contentType("application/json").
+                contentType(ContentType.JSON).
                 body("title", equalTo("et itaque necessitatibus maxime molestiae qui quas velit"),
                         "completed", equalTo(false),
                         "userId", equalTo(2));

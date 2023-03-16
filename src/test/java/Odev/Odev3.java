@@ -1,6 +1,8 @@
-package get_requests;
+package Odev;
 
+import base_urls.HerOkuAppBaseUrl;
 import base_urls.JsonPlaceHolderBaseUrl;
+import base_urls.RegresInApiBaseUrl;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
@@ -8,7 +10,7 @@ import org.junit.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
-public class Odev3 extends JsonPlaceHolderBaseUrl {
+public class Odev3 extends RegresInApiBaseUrl {
     /*
        Given
            https://reqres.in/api/users/2
@@ -27,26 +29,26 @@ public class Odev3 extends JsonPlaceHolderBaseUrl {
        And
            "text" is "To keep ReqRes free, contributions towards server costs are appreciated!"
     */
-@Test
+    @Test
     public void odev3(){
 
-     //       i)   Set the URL
-    //        iii) Send the request and get the response
-    spec.pathParam("first","2");
-    Response response=given().when().spec(spec).get("/{first}");
-    response.prettyPrint();
-    //        ii)  Set the expected data
-    //        iv)  Do assertion
+//Set the Url
+        spec.pathParams("first","users","second",2);
 
-    response.
-            then().
-            statusCode(200).
-            contentType(ContentType.JSON).
-            body("email",equalTo("janet.weaver@reqres.in"),
-                    "first_name",equalTo("Janet"),
-                    "last_name",equalTo("Weaver"),
-                    "text",equalTo("To keep ReqRes free, contributions towards server costs are appreciated!"));
+//Set The Expected Data
 
+//Send The Request and Get The Response
+        Response response = given().spec(spec).when().get("/{first}/{second}");
+        response.prettyPrint();
 
-}
+////Do Assertion
+        response.
+                then().
+                statusCode(200).
+                contentType(ContentType.JSON).
+                body("data.email",equalTo("janet.weaver@reqres.in"),
+                        "data.first_name",equalTo("Janet"),
+                        "data.last_name",equalTo("Weaver"),
+                        "support.text",equalTo("To keep ReqRes free, contributions towards server costs are appreciated!"));
+    }
 }

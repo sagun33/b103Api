@@ -1,8 +1,8 @@
 package post_requests;
 
 import base_urls.JsonPlaceHolderBaseUrl;
-import io.restassured.http.ContentType;
-import io.restassured.response.Response;
+import io.restassured.http.*;
+import io.restassured.response.*;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -60,5 +60,3 @@ public class Post01 extends JsonPlaceHolderBaseUrl {
 
     }
 }
-
-

@@ -1,6 +1,8 @@
-package get_requests;
+package Odev;
+
 
 import base_urls.JsonPlaceHolderBaseUrl;
+import base_urls.RegresInApiBaseUrl;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
@@ -8,10 +10,14 @@ import org.junit.Test;
 import static io.restassured.RestAssured.given;
 import static io.restassured.parsing.Parser.JSON;
 
-public class Odev1 extends JsonPlaceHolderBaseUrl {
+public class Odev1 extends RegresInApiBaseUrl {
     /*
         Given
-            https://reqres.in/api/users/3
+            https://reqres.in/api/users/3a
+
+
+
+
         When
             User sends a GET Request to the url
         Then

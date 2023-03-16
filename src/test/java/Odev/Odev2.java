@@ -1,6 +1,7 @@
-package get_requests;
+package Odev;
 
 import base_urls.JsonPlaceHolderBaseUrl;
+import base_urls.RegresInApiBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import org.junit.Test;
@@ -10,7 +11,7 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class Odev2 extends JsonPlaceHolderBaseUrl {
+public class Odev2 extends RegresInApiBaseUrl {
     /*
        Given
            https://reqres.in/api/users/23
@@ -26,20 +27,21 @@ public class Odev2 extends JsonPlaceHolderBaseUrl {
            Response body should be empty
     */
     @Test
-    public void odev2() {
-        spec.pathParam("first", "22");
-        Response response = given().when().spec(spec).get("/{first}");
+    public void get02(){
+//Set the Url
+        spec.pathParams("first","users","second",23);
+
+//Set The Expected Data
+
+//Send The Request and Get The Response
+        Response response = given().spec(spec).when().get("/{first}/{second}");
         response.prettyPrint();
 
-        response.
-                then().
-                statusCode(404).
-                statusLine("HTTP/1.1 404 Not Found").
-                header("server","cloudflare");
-        response.body().prettyPrint().isEmpty();
+//Do Assertion
 
-
-
-
+        assertEquals(404, response.statusCode());
+        assertEquals("HTTP/1.1 404 Not Found", response.statusLine());
+        assertEquals("cloudflare", response.getHeader("Server"));
+        assertEquals(2, response.asString().replaceAll("\\s","").length());
     }
 }
