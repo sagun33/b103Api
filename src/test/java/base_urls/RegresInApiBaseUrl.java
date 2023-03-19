@@ -10,7 +10,7 @@ public class RegresInApiBaseUrl {
 
     @Before//Her test methodundan önce çalışır.
     public void setUp() {
-        spec = new RequestSpecBuilder().setAccept(ContentType.JSON).setBaseUri("https://reqres.in/api").build();
+        spec = new RequestSpecBuilder().setContentType(ContentType.JSON).setAccept(ContentType.JSON).setBaseUri("https://reqres.in/api").build();
     }
 }
 
