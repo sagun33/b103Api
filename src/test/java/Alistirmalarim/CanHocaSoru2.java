@@ -1,27 +1,20 @@
 package Alistirmalarim;
 
-public class CanHocaSoru2 {
+import base_urls.ApiZipopotamBaseUrl;
 
-    /*
-        Given
-           https://gorest.co.in/public/v2/posts/174
-       When
-            Kullanıcı GET Methodu ile Request Gönder
-        Then
-             Status Code un "200" olduğunu Assert et
-        And
-            Response body nin bu şekilde olduğunu doğrula
- {
-    "id": 174,
-    "user_id": 612,
-    "title": "Tertius valeo sint est vesica doloribus rerum casus cetera nisi sapiente vigor pecus voluptas asperiores et sto vapulus.",
-    "body": "Et demens tergo. Cohors copia adeptio. Cotidie speciosus coaegresco. Concido crastinus degero. Tristis fugit supellex. Sustineo cogo odit. Pel patria crur. Amplus comitatus modi. Ater omnis solutio. Voluptatem acies unde. Taceo delinquo ustilo. Alo possimus vaco. Sit cognomen thesaurus. Appositus vel amicitia. Cetera textus defungo."
-}
-     */
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import io.restassured.response.Response;
+import org.junit.Test;
+import pojos.ApiZipopotamPlacesPojo;
+import pojos.ApiZipopotamPojo;
 
-   /*     Given
-            http://api.zippopotam.us/ES/01001
+import static io.restassured.RestAssured.given;
+
+
+public class CanHocaSoru2 extends ApiZipopotamBaseUrl {
+
+
+    /*     Given
+       set the url     http://api.zippopotam.us/ES/01001
        When
             Kullanıcı GET Methodu ile Request Gönder
         Then
@@ -43,21 +36,18 @@ public class CanHocaSoru2 {
     ]
 }
      */
-        ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-/*
-        Given
-           https://api.covid19api.com/world/total
-       When
-            Kullanıcı GET Methodu ile Request Gönder
-        Then
-             Status Code un "200" olduğunu Assert et
-        And
-            Response body nin bu şekilde olduğunu doğrula
- {
-    "TotalConfirmed": 674300771,
-    "TotalDeaths": 6793224,
-    "TotalRecovered": 0
-}
-     */
+    
+    @Test
+    public void canHocaSoru2(){
+        //1.set the url
+        spec.pathParams("first","ES","second","01001");
+        //2.Set the expected data
+        ApiZipopotamPlacesPojo placesData=new ApiZipopotamPlacesPojo("Vitoria-Gasteiz","-2.6667","Pais Vasco","PV","42.85");
+        ApiZipopotamPojo expectedData=new ApiZipopotamPojo("01001","Spain","ES",placesData);
+        System.out.println("expectedData = " + expectedData);
 
+        //3.Send the request and get the expected data
+        Response response = given().spec(spec).when().get("/{first}/{second}");
+        response.prettyPrint();
+    }
 }

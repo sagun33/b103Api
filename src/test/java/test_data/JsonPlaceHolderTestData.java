@@ -21,4 +21,9 @@ public class JsonPlaceHolderTestData {
 
         return expectedData;
     }
+    public static String expectedDataInString(Integer userId, String title, Boolean completed){
+
+        return "{ \"userId\": "+userId+", \"title\": \""+title+"\", \"completed\": "+completed+" }";
+
+    }
 }

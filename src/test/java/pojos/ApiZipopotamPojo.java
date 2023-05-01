@@ -3,16 +3,16 @@ package pojos;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ApiZippatomPojo {
+public class ApiZipopotamPojo {
    private String postCode;
    private String country;
    private String countryAbbreviation;
-   private ApiZippatomPlacesPojo places;
+   private ApiZipopotamPlacesPojo places;
 
-    public ApiZippatomPojo() {
+    public ApiZipopotamPojo() {
     }
 
-    public ApiZippatomPojo(String postCode, String country, String countryAbbreviation, ApiZippatomPlacesPojo places) {
+    public ApiZipopotamPojo(String postCode, String country, String countryAbbreviation, ApiZipopotamPlacesPojo places) {
         this.postCode = postCode;
         this.country = country;
         this.countryAbbreviation = countryAbbreviation;
@@ -43,11 +43,11 @@ public class ApiZippatomPojo {
         this.countryAbbreviation = countryAbbreviation;
     }
 
-    public ApiZippatomPlacesPojo getPlaces() {
+    public ApiZipopotamPlacesPojo getPlaces() {
         return places;
     }
 
-    public void setPlaces(ApiZippatomPlacesPojo places) {
+    public void setPlaces(ApiZipopotamPlacesPojo places) {
         this.places = places;
     }
 

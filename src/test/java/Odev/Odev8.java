@@ -1,6 +1,19 @@
 package Odev;
 
-public class Odev8 {
+import base_urls.PetsoreBaseUrl;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import org.apache.commons.codec.language.MatchRatingApproachEncoder;
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static io.restassured.RestAssured.given;
+import static junit.framework.TestCase.assertEquals;
+
+public class Odev8 extends PetsoreBaseUrl {
     //3)
 
 /*
@@ -75,5 +88,24 @@ public class Odev8 {
                               }
      */
 
+    @Test
+    public void post01() {
+        spec.pathParam("first", "user");
+        Map<String, Object> expectedData = new HashMap<>();//Pojo class ile de payload oluşturabilirsiniz
+        expectedData.put("username", "JohnDoe");
+        expectedData.put("firstName", "John");
+        expectedData.put("lastName", "Doe");
+        expectedData.put("email", "john@doe.com");
+        expectedData.put("password", "1234");
+        expectedData.put("phone", "1234");
+        expectedData.put("userStatus", 123);
 
+        Response response = given().spec(spec).contentType(ContentType.JSON).body(expectedData).when().post("/{first}");
+        response.prettyPrint();
+
+        Map<String ,Object> actualData =response.as(HashMap.class);
+        assertEquals(200,response.statusCode());
+        assertEquals(200,actualData.get("code"));
+        assertEquals("unknown",actualData.get("type"));
+    }
 }

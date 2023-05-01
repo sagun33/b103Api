@@ -4,22 +4,22 @@ package pojos;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RegresInApiIcDataPjo {
+public class RegresInApiDataPojo {
 
     private Integer id;
     private String email;
-    private String firstName;
-    private String lastName;
+    private String first_Name;
+    private String last_Name;
     private String avatar;
 
-    public RegresInApiIcDataPjo() {
+    public RegresInApiDataPojo() {
     }
 
-    public RegresInApiIcDataPjo(Integer id, String email, String firstName, String lastName, String avatar) {
+    public RegresInApiDataPojo(Integer id, String email, String firstName, String lastName, String avatar) {
         this.id = id;
         this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.first_Name = firstName;
+        this.last_Name = lastName;
         this.avatar = avatar;
     }
 
@@ -40,19 +40,19 @@ public class RegresInApiIcDataPjo {
     }
 
     public String getFirstName() {
-        return firstName;
+        return first_Name;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.first_Name = firstName;
     }
 
     public String getLastName() {
-        return lastName;
+        return last_Name;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.last_Name = lastName;
     }
 
     public String getAvatar() {
@@ -68,8 +68,8 @@ public class RegresInApiIcDataPjo {
         return "RegresInApiIcDataPjo{" +
                 "id=" + id +
                 ", email='" + email + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", firstName='" + first_Name + '\'' +
+                ", lastName='" + last_Name + '\'' +
                 ", avatar='" + avatar + '\'' +
                 '}';
     }

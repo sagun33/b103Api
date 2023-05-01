@@ -1,4 +1,4 @@
-package herokuapp_smoketestt;
+package HerOkuAppSmokeTest;
 
 import base_urls.HerOkuAppBaseUrl;
 import io.restassured.response.Response;
@@ -12,7 +12,6 @@ import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 public class S1Post extends HerOkuAppBaseUrl {
-    static int bookingId;
     /*
     Given
        1) https://restful-booker.herokuapp.com/booking
@@ -48,6 +47,8 @@ public class S1Post extends HerOkuAppBaseUrl {
             }
         }
      */
+    static int bookingId;
+
     @Test
     public void post01() {
         //Set the URL
@@ -56,7 +57,7 @@ public class S1Post extends HerOkuAppBaseUrl {
         //Set the expected data
         BookingDatesPojo bookingDatesPojo = new BookingDatesPojo("2018-01-01", "2019-01-01");
         BookingPojo expectedData = new BookingPojo("Jim", "Brown", 111, true, bookingDatesPojo, "Breakfast");
-        System.out.println("expectedData = " + expectedData);
+   git
 
         //Send the request and get the response
         Response response = given().spec(spec).when().body(expectedData).post("{first}");
@@ -76,6 +77,8 @@ public class S1Post extends HerOkuAppBaseUrl {
         assertEquals(bookingDatesPojo.getCheckout(), actualData.getBooking().getBookingdates().getCheckout());
 
         assertEquals(expectedData.getAdditionalneeds(), actualData.getBooking().getAdditionalneeds());
-        bookingId =actualData.getBookingid();
+
+        bookingId = actualData.getBookingid();
+
     }
 }

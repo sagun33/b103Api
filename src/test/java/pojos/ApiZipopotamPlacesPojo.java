@@ -3,17 +3,17 @@ package pojos;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ApiZippatomPlacesPojo {
+public class ApiZipopotamPlacesPojo {
     private String placeName;
     private String longitude;
     private String state;
     private String stateAbbreviation;
     private String latitude;
 
-    public ApiZippatomPlacesPojo() {
+    public ApiZipopotamPlacesPojo() {
     }
 
-    public ApiZippatomPlacesPojo(String placeName, String longitude, String state, String stateAbbreviation, String latitude) {
+    public ApiZipopotamPlacesPojo(String placeName, String longitude, String state, String stateAbbreviation, String latitude) {
         this.placeName = placeName;
         this.longitude = longitude;
         this.state = state;

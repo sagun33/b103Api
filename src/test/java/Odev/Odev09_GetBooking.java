@@ -11,7 +11,7 @@ import util.ObjectMapperUtils;
 import static io.restassured.RestAssured.given;
 import static junit.framework.TestCase.assertEquals;
 
-public class Odev09_PutBooking extends HerOkuAppBaseUrl {
+public class Odev09_GetBooking extends HerOkuAppBaseUrl {
     /*
 
  Given

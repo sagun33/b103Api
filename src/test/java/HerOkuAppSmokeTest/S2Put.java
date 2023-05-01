@@ -1,4 +1,4 @@
-package herokuapp_smoketestt;
+package HerOkuAppSmokeTest;
 
 import base_urls.HerOkuAppBaseUrl;
 import io.restassured.response.Response;
@@ -7,7 +7,7 @@ import pojos.BookingDatesPojo;
 import pojos.BookingPojo;
 import util.ObjectMapperUtils;
 
-import static herokuapp_smoketestt.S1Post.bookingId;
+import static HerOkuAppSmokeTest.S1Post.bookingId;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 import static util.AuthenticationHerOkuApp.generateToken;
@@ -57,10 +57,7 @@ public class S2Put extends HerOkuAppBaseUrl {
         System.out.println("expectedData = " + expectedData);
 
         //Send the request and get the response
-        Response response = given().
-                spec(spec).
-                header("Cookie", "token=" + generateToken()).
-                body(expectedData).put("/{first}/{second}");
+        Response response = given().spec(spec).body(expectedData).put("/{first}/{second}");
 
         response.prettyPrint();
 
